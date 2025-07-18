@@ -53,6 +53,18 @@ const projects = [
         ],
         image: "/assets/project3.png",
         github: "https://github.com/Anindya007/Petchly"
+    },{
+        num: '04',
+        title: "This Portfolio",
+        description: "Clean modern portfolio to showcase projects and ability to contact me.",
+        stack: [
+            { name: "Next.js API routes" },
+            { name: "Resend" },
+            { name: "Tailwind CSS" },
+            { name: "Shadcn" }
+        ],
+        image: "/assets/project4.png",
+        github: "https://github.com/Anindya007/portfolio-2025"
     }
 ]
 
@@ -111,7 +123,7 @@ const Projects = () => {
                             {projects.map((item, index) => (
                                 <SwiperSlide key={index} spacebetween={30} slidesperview={1} className="xl:h-[520px]  mb-12"
                                     onSlideChange={() => setProject(item)}>
-                                    <div className="relative h-[460px] group flex justify-center items-center w-[1000px]">
+                                    <div className="relative h-[460px] group flex justify-center items-center w-[800px]">
                                         {/*overlay */}
                                         <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                                         <Image src={item.image} alt={item.title} fill className="rounded-lg" />

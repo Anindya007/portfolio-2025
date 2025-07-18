@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="h1">
             Hello I'm <br /> <span>Anindya Chakladar</span>
           </h1>
-          <p className="max-w-[600px] mt-3 mb-8 text-gray-700">🛠 Full Stack Developer with a passion for crafting beautiful and functional user interfaces.Skilled in modern web technologies,</p>
+          <p className="max-w-[600px] mt-3 mb-8 text-gray-700">I am an experienced Java Full Stack Developer with a passion for crafting beautiful and functional user interfaces.Skilled in both frontend and backend technologies.</p>
         </div>
 
 
