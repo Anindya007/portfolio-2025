@@ -30,8 +30,8 @@ export default function Home() {
             size={"lg"}
             onClick={() => {
               const link = document.createElement('a');
-              link.href = '/CV_smart.pdf';
-              link.download = 'Anindya_Chakladar_CV.pdf';
+              link.href = '/CV_smart.docx';
+              link.download = 'Anindya_Chakladar_CV.docx';
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);

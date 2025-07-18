@@ -6,7 +6,7 @@ import {Textarea} from "@/components/ui/textarea";
 
 import {FaPhoneAlt,FaEnvelope,FaMapMarkerAlt} from "react-icons/fa";
 import {motion} from "framer-motion";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState, Suspense} from "react";
 import {useSearchParams} from "next/navigation";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -49,8 +49,8 @@ const info = [
     }
 ];
 
-const Contact = () => {
-    const firstNameRef = useRef(null);
+// Contact Form Component that uses useSearchParams
+const ContactFormWithParams = () => {
     const searchParams = useSearchParams();
     const [isSubmitting, setIsSubmitting] = useState(false);
     
@@ -115,97 +115,123 @@ const Contact = () => {
     };
 
     return (
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <h3 className="text-accent text-4xl">Let's work together</h3>
+            <p className="font-light text-base">Ready to bring your next project to life? Let's discuss how we can work together to create something amazing.</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                    <Input 
+                        {...register("firstName", {
+                            setValueAs: (value) => value?.trim() || ""
+                        })}
+                        type="text" 
+                        placeholder="First Name" 
+                        className={`${errors.firstName ? 'border-red-500' : ''}`}
+                    />
+                    {errors.firstName && (
+                        <p className="text-red-500 text-sm">{errors.firstName.message}</p>
+                    )}
+                </div>
+
+                <div className="space-y-2">
+                    <Input 
+                        {...register("lastName", {
+                            setValueAs: (value) => value?.trim() || ""
+                        })}
+                        type="text" 
+                        placeholder="Last Name" 
+                        className={`${errors.lastName ? 'border-red-500' : ''}`}
+                    />
+                    {errors.lastName && (
+                        <p className="text-red-500 text-sm">{errors.lastName.message}</p>
+                    )}
+                </div>
+
+                <div className="space-y-2">
+                    <Input 
+                        {...register("email", {
+                            setValueAs: (value) => value?.trim() || ""
+                        })}
+                        type="email" 
+                        placeholder="Your Email" 
+                        className={`${errors.email ? 'border-red-500' : ''}`}
+                    />
+                    {errors.email && (
+                        <p className="text-red-500 text-sm">{errors.email.message}</p>
+                    )}
+                </div>
+
+                <div className="space-y-2">
+                    <Input 
+                        {...register("phone", {
+                            setValueAs: (value) => value?.trim() || ""
+                        })}
+                        type="tel" 
+                        placeholder="Phone (Optional)" 
+                    />
+                </div>
+
+                <div className="col-span-full space-y-2">
+                    <div className="h-[200px]">
+                        <Textarea 
+                            {...register("message", {
+                                setValueAs: (value) => value?.trim() || ""
+                            })}
+                            rows={6} 
+                            placeholder="Tell me about your project, timeline, and how I can help you..."
+                            className={`h-full resize-none ${errors.message ? 'border-red-500' : ''}`}
+                        />
+                    </div>
+                    {errors.message && (
+                        <p className="text-red-500 text-sm">{errors.message.message}</p>
+                    )}
+                </div>
+
+                <Button 
+                    type="submit"
+                    size="lg" 
+                    disabled={isSubmitting}
+                    className="max-w-40 bg-accent p-1 text-black hover:bg-black hover:text-white cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+            </div>
+        </form>
+    );
+};
+
+// Loading fallback component
+const ContactFormFallback = () => (
+    <div className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+        <h3 className="text-accent text-4xl">Let's work together</h3>
+        <p className="font-light text-base">Loading contact form...</p>
+        <div className="animate-pulse">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="h-10 bg-gray-600 rounded"></div>
+                <div className="h-10 bg-gray-600 rounded"></div>
+                <div className="h-10 bg-gray-600 rounded"></div>
+                <div className="h-10 bg-gray-600 rounded"></div>
+                <div className="col-span-full h-[200px] bg-gray-600 rounded"></div>
+                <div className="h-10 w-40 bg-gray-600 rounded"></div>
+            </div>
+        </div>
+    </div>
+);
+
+// Main Contact Component
+const Contact = () => {
+    return (
         <motion.section initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.4, ease: "easeIn" }}
                 className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0">
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row gap-[30px]">
-                    <div className="xl:w-[50%] order-2 xl:order-none">
-                        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                            <h3 className="text-accent text-4xl">Let's work together</h3>
-                            <p className="font-light text-base">Ready to bring your next project to life? Let's discuss how we can work together to create something amazing.</p>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Input 
-                                        {...register("firstName", {
-                                            setValueAs: (value) => value?.trim() || ""
-                                        })}
-                                        type="text" 
-                                        placeholder="First Name" 
-                                        className={`${errors.firstName ? 'border-red-500' : ''}`}
-                                    />
-                                    {errors.firstName && (
-                                        <p className="text-red-500 text-sm">{errors.firstName.message}</p>
-                                    )}
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Input 
-                                        {...register("lastName", {
-                                            setValueAs: (value) => value?.trim() || ""
-                                        })}
-                                        type="text" 
-                                        placeholder="Last Name" 
-                                        className={`${errors.lastName ? 'border-red-500' : ''}`}
-                                    />
-                                    {errors.lastName && (
-                                        <p className="text-red-500 text-sm">{errors.lastName.message}</p>
-                                    )}
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Input 
-                                        {...register("email", {
-                                            setValueAs: (value) => value?.trim() || ""
-                                        })}
-                                        type="email" 
-                                        placeholder="Your Email" 
-                                        className={`${errors.email ? 'border-red-500' : ''}`}
-                                    />
-                                    {errors.email && (
-                                        <p className="text-red-500 text-sm">{errors.email.message}</p>
-                                    )}
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Input 
-                                        {...register("phone", {
-                                            setValueAs: (value) => value?.trim() || ""
-                                        })}
-                                        type="tel" 
-                                        placeholder="Phone (Optional)" 
-                                    />
-                                </div>
-
-                                <div className="col-span-full space-y-2">
-                                    <div className="h-[200px]">
-                                        <Textarea 
-                                            {...register("message", {
-                                                setValueAs: (value) => value?.trim() || ""
-                                            })}
-                                            rows={6} 
-                                            placeholder="Tell me about your project, timeline, and how I can help you..."
-                                            className={`h-full resize-none ${errors.message ? 'border-red-500' : ''}`}
-                                        />
-                                    </div>
-                                    {errors.message && (
-                                        <p className="text-red-500 text-sm">{errors.message.message}</p>
-                                    )}
-                                </div>
-
-                                <Button 
-                                    type="submit"
-                                    size="lg" 
-                                    disabled={isSubmitting}
-                                    className="max-w-40 bg-accent p-1 text-black hover:bg-black hover:text-white cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                                </Button>
-                            </div>
-                            
-                        </form>
+                    <div className="xl:w-[54%] order-2 xl:order-none">
+                        <Suspense fallback={<ContactFormFallback />}>
+                            <ContactFormWithParams />
+                        </Suspense>
                     </div>
                     <div className="flex-1 flex items-center xl:justify-center order-1 xl:order-none mb-8 xl:mb-0 rounded-xl">
                         <ul>
