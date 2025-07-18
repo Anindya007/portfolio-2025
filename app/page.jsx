@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { FileDown } from "lucide-react";
@@ -24,7 +25,18 @@ export default function Home() {
 
       <div className="flex flex-col xl:flex-row items-center gap-8 sm:pt-6">
         <div>
-          <Button variant={"outline"} size={"lg"}>
+          <Button 
+            variant={"outline"} 
+            size={"lg"}
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/CV_smart.pdf';
+              link.download = 'Anindya_Chakladar_CV.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+          >
             <span className="text-xl cursor-pointer">Download CV</span>
             <FileDown />
           </Button>
