@@ -14,7 +14,15 @@ export default function Home() {
           <h1 className="h1">
             Hello I'm <br /> <span>Anindya Chakladar</span>
           </h1>
-          <p className="max-w-[600px] mt-3 mb-8 text-gray-700">I am an experienced Java Full Stack Developer with a passion for crafting beautiful and functional user interfaces.Skilled in both frontend and backend technologies.</p>
+          <p className="max-w-[600px] mt-3 mb-8 text-gray-700">I am a senior Java Full Stack Developer with a passion for crafing innovative and seamless web applications. 
+            With a strong foundation in both front-end and back-end development, I thrive on building scalable solutions that meet the needs of users and businesses alike.
+            I saw many frameworks come and go, during my career, and I have adapted to the ever-changing landscape.
+            <br /><br />
+            Though being a electronics engineering graduate, I have been working as a software developer since 2013. 
+            
+            In addition to my technical prowess, I possess clear communication and collaboration skills and I have huge patience and adaptability to push through challenging projects and a strong work ethic as well.
+            
+            </p>
         </div>
 
 
