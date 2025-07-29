@@ -18,7 +18,7 @@ export default function Home() {
             With a strong foundation in both front-end and back-end development, I thrive on building scalable solutions that meet the needs of users and businesses alike.
             I saw many frameworks come and go, during my career, and I have adapted to the ever-changing landscape.
             <br /><br />
-            Though being a electronics engineering graduate, I have been working as a software developer since 2013. 
+            Though being a electronics engineering graduate, I have been working as a software developer since 2013 in service based and product based companies. 
             
             In addition to my technical prowess, I possess clear communication and collaboration skills and I have huge patience and adaptability to push through challenging projects and a strong work ethic as well.
             

@@ -1,6 +1,6 @@
 "use client";
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs"
+import { BsGithub,BsArrowUpRight } from "react-icons/bs"
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,7 +15,24 @@ import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 
 const projects = [
     {
+
         num: '01',
+        title: "Drag-and-Drop based SaaS based Website Builder",
+        description: `WebBuilder is a modern, intuitive drag-and-drop website creation tool built with Next.js, designed for users with no coding experience. It enables quick and easy design of responsive websites through a clean interface, real-time previews, and a rich library of pre-designed components such as headers and content sections.
+Users can simply drag components onto the canvas to build pages visually. The built-in WYSIWYG text editor makes it easy to edit content on the fly.The tool also offers export functionality, allowing users to download their site as clean HTML with Tailwind CSS for easy deployment.
+Clerk handles user authentication and manages Pro subscriptions, which unlock premium features such as exclusive components and direct HTML editing. `,
+        stack: [
+            { name: "Next.js" },
+            { name: "TailwindCSS" },
+            { name: "Shadcn" },
+            { name: "Clerk" },
+        ],
+        image: "/assets/project0.png",
+        github: "https://github.com/Anindya007/ai-website-builder/tree/07--normal-website-builder",
+        link: "https://ai-website-builder-if7m-izledoj37-anindya007s-projects.vercel.app/"
+    },
+    {
+        num: '02',
         title: "Command Line Custom LLM",
         description: `This application  is a Node.js-based command line LLM client application that utitlizes the Groq AI platform to interact with a Large Language Model (LLM). It allows users to enter their own prompts or questions into the command line interface, which are then sent an open source LLM to process user queries and return responses . The application takes user input from the terminal, sends it to the Groq API, and displays the response.
         It supports multiple queries in a single session and can handle errors gracefully.`,
@@ -25,10 +42,10 @@ const projects = [
             { name: "Llama 3.3 70B" },
         ],
         image: "/assets/project1.png",
-        github: "https://github.com/Anindya007/groq_ai_agent"  
+        github: "https://github.com/Anindya007/groq_ai_agent"
     },
     {
-        num: '02',
+        num: '03',
         title: "Bulk Image Compressor",
         description: "A web worker based bulk image compressor application that compresses high-res images without blocking the main thread. The images does not leave the user's browser and are not stored in any servers.",
         stack: [
@@ -41,7 +58,7 @@ const projects = [
         github: "https://github.com/Anindya007/bulk_image_compressor"
     },
     {
-        num: '03',
+        num: '04',
         title: "Petchly",
         description: "Petchly is a comprehensive web application designed to connect pet owners with professional pet care services. The platform allows users to book various pet care services, manage appointments, and get AI-powered advice for pet care.",
         stack: [
@@ -49,12 +66,12 @@ const projects = [
             { name: "Mongodb" },
             { name: "Tailwind CSS" },
             { name: "Groq API with Llama 3.3 70B" },
-            {name: "Stream Video Sdk" }
+            { name: "Stream Video Sdk" }
         ],
         image: "/assets/project3.png",
         github: "https://github.com/Anindya007/Petchly"
-    },{
-        num: '04',
+    }, {
+        num: '05',
         title: "This Portfolio",
         description: "Clean modern portfolio to showcase projects and ability to contact me.",
         stack: [
@@ -109,14 +126,17 @@ const Projects = () => {
                         ))}
                     </ul>
                     <hr />
-                    <Link href={project.github} target="_blank">
-                        <BsGithub className="hover:text-accent transition-all cursor-pointer" size={24} />
-                    </Link>
+                    <div className={`flex flex-gap-x-4 ${project === projects[0] ? 'mt-4' : ''}`}>
+                        <Link href={project.github} target="_blank">
+                            <BsGithub className="hover:text-accent transition-all cursor-pointer" size={24} />
+                        </Link>
+                        {project.link && <Link href={project.link} target="_blank"><BsArrowUpRight className="hover:text-accent transition-all cursor-pointer ml-4" size={24} /></Link>}
+                    </div>
                 </div>
                 <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between ">
                     <div className="w-full xl:w-[100%]">
                         <Swiper
-                            
+
                             slidesPerView={1}
                             onSlideChange={(swiper) => setProject(projects[swiper.activeIndex])}
                         >
@@ -130,7 +150,7 @@ const Projects = () => {
                                     </div>
                                 </SwiperSlide>
                             ))}
-                            <ProjectsSliderButtons containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%-2rem)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none text-black" btnStyles="bg-white p-2 rounded-full shadow-md cursor-pointer hover:bg-accent hover:text-white transition-all duration-300" iconStyles="group-hover:text-accent transition-all duration-300"/>
+                            <ProjectsSliderButtons containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%-2rem)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none text-black" btnStyles="bg-white p-2 rounded-full shadow-md cursor-pointer hover:bg-accent hover:text-white transition-all duration-300" iconStyles="group-hover:text-accent transition-all duration-300" />
                         </Swiper>
                     </div>
                 </div>
