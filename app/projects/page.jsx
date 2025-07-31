@@ -33,17 +33,19 @@ Clerk handles user authentication and manages Pro subscriptions, which unlock pr
     },
     {
         num: '02',
-        title: "Command Line Custom LLM",
-        description: `This application  is a Node.js-based command line LLM client application that utitlizes the Groq AI platform to interact with a Large Language Model (LLM). It allows users to enter their own prompts or questions into the command line interface, which are then sent an open source LLM to process user queries and return responses . The application takes user input from the terminal, sends it to the Groq API, and displays the response.
-        It supports multiple queries in a single session and can handle errors gracefully.`,
+        title: "Petchly",
+        description: "Petchly is a comprehensive web application designed to connect pet owners with professional pet care services. The platform allows users to book various pet care services, manage appointments, and get AI-powered advice for pet care.",
         stack: [
-            { name: "Node.js" },
-            { name: "Groq.AI" },
-            { name: "Llama 3.3 70B" },
+            { name: "Next.js" },
+            { name: "Mongodb" },
+            { name: "Tailwind CSS" },
+            { name: "Groq API with Llama 3.3 70B" },
+            { name: "Stream Video Sdk" }
         ],
-        image: "/assets/project1.png",
-        github: "https://github.com/Anindya007/groq_ai_agent"
-    },
+        image: "/assets/project3.png",
+        github: "https://github.com/Anindya007/Petchly"
+    }
+    ,
     {
         num: '03',
         title: "Bulk Image Compressor",
@@ -58,19 +60,19 @@ Clerk handles user authentication and manages Pro subscriptions, which unlock pr
         github: "https://github.com/Anindya007/bulk_image_compressor"
     },
     {
-        num: '04',
-        title: "Petchly",
-        description: "Petchly is a comprehensive web application designed to connect pet owners with professional pet care services. The platform allows users to book various pet care services, manage appointments, and get AI-powered advice for pet care.",
+        num: '02',
+        title: "Command Line Custom LLM",
+        description: `This application  is a Node.js-based command line LLM client application that utitlizes the Groq AI platform to interact with a Large Language Model (LLM). It allows users to enter their own prompts or questions into the command line interface, which are then sent an open source LLM to process user queries and return responses . The application takes user input from the terminal, sends it to the Groq API, and displays the response.
+        It supports multiple queries in a single session and can handle errors gracefully.`,
         stack: [
-            { name: "Next.js" },
-            { name: "Mongodb" },
-            { name: "Tailwind CSS" },
-            { name: "Groq API with Llama 3.3 70B" },
-            { name: "Stream Video Sdk" }
+            { name: "Node.js" },
+            { name: "Groq.AI" },
+            { name: "Llama 3.3 70B" },
         ],
-        image: "/assets/project3.png",
-        github: "https://github.com/Anindya007/Petchly"
-    }, {
+        image: "/assets/project1.png",
+        github: "https://github.com/Anindya007/groq_ai_agent"
+    }
+    , {
         num: '05',
         title: "This Portfolio",
         description: "Clean modern portfolio to showcase projects and ability to contact me.",
