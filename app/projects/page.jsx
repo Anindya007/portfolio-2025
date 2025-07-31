@@ -17,7 +17,7 @@ const projects = [
     {
 
         num: '01',
-        title: "Drag-and-Drop based SaaS based Website Builder",
+        title: "Drag-and-Drop SaaS based Website Builder",
         description: `WebBuilder is a modern, intuitive drag-and-drop website creation tool built with Next.js, designed for users with no coding experience. It enables quick and easy design of responsive websites through a clean interface, real-time previews, and a rich library of pre-designed components such as headers and content sections.
 Users can simply drag components onto the canvas to build pages visually. The built-in WYSIWYG text editor makes it easy to edit content on the fly.The tool also offers export functionality, allowing users to download their site as clean HTML with Tailwind CSS for easy deployment.
 Clerk handles user authentication and manages Pro subscriptions, which unlock premium features such as exclusive components and direct HTML editing. `,
