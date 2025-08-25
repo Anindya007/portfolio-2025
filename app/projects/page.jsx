@@ -57,7 +57,8 @@ Clerk handles user authentication and manages Pro subscriptions, which unlock pr
             { name: "Typescript" }
         ],
         image: "/assets/project2.png",
-        github: "https://github.com/Anindya007/bulk_image_compressor"
+        github: "https://github.com/Anindya007/bulk_image_compressor",
+        link: "https://bulk-image-compressor.pages.dev/"
     },
     {
         num: '02',
