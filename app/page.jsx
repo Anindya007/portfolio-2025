@@ -10,11 +10,11 @@ export default function Home() {
     <div className="container mx-auto h-full">
       <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
         <div className="text-center xl:text-left order-2 xl:order-none sm:mt-8">
-          <span>Java Full Stack Developer</span>
+          <span>Full Stack Developer</span>
           <h1 className="h1">
             Hello I'm <br /> <span>Anindya Chakladar</span>
           </h1>
-          <p className="max-w-[600px] mt-3 mb-8 text-gray-700">I am a senior Java Full Stack Developer with a passion for crafing innovative and seamless web applications. 
+          <p className="max-w-[600px] mt-3 mb-8 text-gray-700">I am a senior Full Stack Developer with a passion for crafing innovative and seamless web applications. 
             With a strong foundation in both front-end and back-end development, I thrive on building scalable solutions that meet the needs of users and businesses alike.
             I saw many frameworks come and go, during my career, and I have adapted to the ever-changing landscape.
             <br /><br />
